@@ -14,12 +14,19 @@ const pokemonSchema = new mongoose.Schema({
   },
   types: [{
     type: String,
-    enum: [
-      "fire", "water", "grass", "electric", "ice", "fighting",
-      "poison", "ground", "flying", "psychic", "bug", "rock",
-      "ghost", "dragon", "dark", "steel", "fairy"
-    ]
+    // enum supprimé pour permettre la flexibilité des types
   }],
+  type: [{
+    type: String
+  }],
+  base: {
+    HP: Number,
+    Attack: Number,
+    Defense: Number,
+    "Sp. Attack": Number,
+    "Sp. Defense": Number,
+    Speed: Number
+  },
   image: {
     type: String
   },
