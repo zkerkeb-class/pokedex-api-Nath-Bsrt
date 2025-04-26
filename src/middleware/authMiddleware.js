@@ -4,6 +4,7 @@ import asyncHandler from 'express-async-handler';
 
 // Option 1: Désactiver complètement la protection (seulement pour le développement)
 // Décommentez ce bloc et commentez celui en dessous pour un accès sans authentification
+/*
 export const protect = asyncHandler(async (req, res, next) => {
   // Utilisateur factice pour le développement
   req.user = {
@@ -17,10 +18,10 @@ export const protect = asyncHandler(async (req, res, next) => {
   };
   return next();
 });
+*/
 
 // Option 2: Middleware standard avec vérification du token JWT
 // Pour réactiver en production, commentez la version ci-dessus et décommentez celle-ci
-/*
 export const protect = asyncHandler(async (req, res, next) => {
   let token;
 
@@ -60,7 +61,6 @@ export const protect = asyncHandler(async (req, res, next) => {
     throw new Error('Non autorisé, pas de token');
   }
 });
-*/
 
 // Middleware pour les routes réservées aux administrateurs
 export const admin = (req, res, next) => {

@@ -30,12 +30,22 @@ const importData = async () => {
         completePokemon.base = {};
       }
       
+      // Remplacer les clés avec des points par des underscores pour éviter les problèmes avec MongoDB
+      if (completePokemon.base["Sp. Attack"] !== undefined) {
+        completePokemon.base["Sp_Attack"] = completePokemon.base["Sp. Attack"];
+        delete completePokemon.base["Sp. Attack"];
+      }
+      if (completePokemon.base["Sp. Defense"] !== undefined) {
+        completePokemon.base["Sp_Defense"] = completePokemon.base["Sp. Defense"];
+        delete completePokemon.base["Sp. Defense"];
+      }
+      
       // Compléter les champs manquants dans base avec des valeurs par défaut
       if (!completePokemon.base.HP) completePokemon.base.HP = 0;
       if (!completePokemon.base.Attack) completePokemon.base.Attack = 0;
       if (!completePokemon.base.Defense) completePokemon.base.Defense = 0;
-      if (!completePokemon.base["Sp. Attack"]) completePokemon.base["Sp. Attack"] = 0;
-      if (!completePokemon.base["Sp. Defense"]) completePokemon.base["Sp. Defense"] = 0;
+      if (!completePokemon.base.Sp_Attack) completePokemon.base.Sp_Attack = 0;
+      if (!completePokemon.base.Sp_Defense) completePokemon.base.Sp_Defense = 0;
       if (!completePokemon.base.Speed) completePokemon.base.Speed = 0;
       
       // S'assurer que type est un tableau
@@ -50,13 +60,17 @@ const importData = async () => {
       
       // Ajouter le champ stats pour compatibilité avec le schéma Mongoose
       completePokemon.stats = {
-        hp: completePokemon.base.HP,
-        attack: completePokemon.base.Attack,
-        defense: completePokemon.base.Defense,
-        specialAttack: completePokemon.base["Sp. Attack"],
-        specialDefense: completePokemon.base["Sp. Defense"],
-        speed: completePokemon.base.Speed
+        hp: completePokemon.base.HP || 0,
+        attack: completePokemon.base.Attack || 0,
+        defense: completePokemon.base.Defense || 0,
+        specialAttack: completePokemon.base["Sp. Attack"] || 0,
+        specialDefense: completePokemon.base["Sp. Defense"] || 0,
+        speed: completePokemon.base.Speed || 0
       };
+      
+      // S'assurer que base.Sp_Attack et base.Sp_Defense sont correctement définis
+      completePokemon.base.Sp_Attack = completePokemon.base["Sp. Attack"] || 0;
+      completePokemon.base.Sp_Defense = completePokemon.base["Sp. Defense"] || 0;
       
       // S'assurer que les URLs des images contiennent bien http://localhost:3000
       if (completePokemon.image && !completePokemon.image.includes('http://localhost:3000')) {
