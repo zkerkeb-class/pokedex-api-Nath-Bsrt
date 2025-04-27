@@ -2,26 +2,7 @@ import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import asyncHandler from 'express-async-handler';
 
-// Option 1: Désactiver complètement la protection (seulement pour le développement)
-// Décommentez ce bloc et commentez celui en dessous pour un accès sans authentification
-/*
-export const protect = asyncHandler(async (req, res, next) => {
-  // Utilisateur factice pour le développement
-  req.user = {
-    _id: '123456789012345678901234',
-    username: 'utilisateur_debug',
-    email: 'debug@test.com',
-    role: 'user',
-    highScore: 0,
-    gamesPlayed: 0,
-    pokemonCaught: 0
-  };
-  return next();
-});
-*/
-
-// Option 2: Middleware standard avec vérification du token JWT
-// Pour réactiver en production, commentez la version ci-dessus et décommentez celle-ci
+// Middleware standard avec vérification du token JWT
 export const protect = asyncHandler(async (req, res, next) => {
   let token;
 

@@ -18,7 +18,6 @@ console.log("PORT:", process.env.PORT);
 console.log("MONGODB_URI:", process.env.MONGODB_URI);
 console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
 console.log("JWT_SECRET présent:", process.env.JWT_SECRET ? "Oui" : "Non");
-console.log("NODE_ENV:", process.env.NODE_ENV);
 console.log("-------------------------------------");
 
 // Définir une valeur par défaut pour JWT_SECRET si elle n'existe pas
@@ -42,14 +41,14 @@ app.use(express.json());
 
 app.use("/assets", express.static(path.join(__dirname, "../assets")));
 
-// Configuration CORS très permissive pour le développement
+// Configuration CORS
 app.use(cors({
-  origin: '*', // Autorise toutes les origines en mode développement
+  origin: '*', // Autorise toutes les origines
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
 }));
 
-// Log de toutes les requêtes en mode développement
+// Log de toutes les requêtes
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.originalUrl}`);
   next();
@@ -80,7 +79,6 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log("Routes disponibles :");
   console.log("📝 POST /api/auth/register - Inscription");
   console.log("🔑 POST /api/auth/login - Connexion");
-  console.log("🔑 GET /api/auth/dev-login - Connexion rapide (dev)");
   console.log("🏆 GET /api/auth/leaderboard - Classement");
   console.log("-------------------------------------");
 });

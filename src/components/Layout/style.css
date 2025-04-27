@@ -1,6 +1,0 @@
-/* Styles pour corriger la visibilité du texte lors de l'édition du nom des Pokémon */
-input, 
-[contenteditable="true"],
-[role="textbox"] {
-  color: white !important;
-} 

@@ -6,9 +6,7 @@ import {
   updateUserProfile, 
   verifyUser,
   updateUserScore,
-  getLeaderboard,
-  devLogin,
-  createDevUser
+  getLeaderboard
 } from '../controllers/authController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
@@ -18,9 +16,6 @@ const router = express.Router();
 router.post('/register', registerUser);
 router.post('/login', loginUser);
 router.get('/leaderboard', getLeaderboard);
-// Routes de développement - ne pas utiliser en production
-router.get('/dev-login', devLogin);
-router.get('/create-dev-user', createDevUser);
 
 // Routes protégées
 router.get('/profile', protect, getUserProfile);
