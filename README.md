@@ -83,12 +83,12 @@ Cette application web full-stack permet de :
 - S’enregistrer et se connecter de manière sécurisée (JWT)
 - Parcourir et consulter la liste des Pokémons (données issues de MongoDB)
 - **Voir le détail de chaque Pokémon** : nom, types, statistiques, évolutions possibles, et version shiny
-- **Ajouter, modifier et supprimer un Pokémon** (fonctionnalité avancée, authentification requise)
+- **Ajouter, modifier et supprimer un Pokémon** (authentification requise)
+- Ajouter des Pokémons à vos **favoris** et les consulter à tout moment
 - Jouer au mini-jeu **"Who’s That Pokémon ?"** :  
   Essayez de deviner un maximum de Pokémon en 1 minute, en accumulant des points.  
   À la fin, votre meilleur score est sauvegardé et visible dans le **leaderboard du jeu**.
-- Ajouter des Pokémons à vos **favoris** et les consulter à tout moment
-- Accéder à un **comparateur de Pokémons** pour visualiser leurs statistiques côte à côte
+- Accéder à un **comparateur de Pokémons** pour visualiser leurs statistiques côte à côte et comparer l'efficacité de leurs types.
 
 ---
 
@@ -191,32 +191,14 @@ Le projet est divisé en deux dossiers principaux :
 
 ---
 
-## 🌐 Frontend — Fonctionnalités principales
-
-- **Login/Register** : Connexion sécurisée (JWT)
-- **Liste des Pokémons** : Recherche, filtre, détail complet
-- **Fiche Pokémon** :  
-  Consultez le nom, les types, les statistiques, les évolutions et la version shiny de chaque Pokémon
-- **Ajouter, modifier et supprimer un Pokémon** (réservé aux utilisateurs authentifiés)
-- **Mini-jeu "Who’s That Pokémon ?"** :  
-  Devinez un maximum de Pokémon en 1 minute, score sauvegardé et leaderboard dédié
-- **Favoris** :  
-  Ajouter/retirer des Pokémons favoris, accès rapide à sa liste personnelle
-- **Comparateur de Pokémons** :  
-  Sélectionnez 2 Pokémons pour comparer facilement leurs statistiques
-- **Navigation** : Routing fluide via React Router
-
----
-
 ## 🎥 Vidéo de démonstration
 
 ▶️ [Lien YouTube vers la démo du projet](https://youtu.be/smd7G93yZ8w)
 
 ---
 
-💚 Merci pour votre attention et bon Poké-catching ! 🌟
+💚 Bon visionnage ! 🌟
 
 ---
 
-> _Projet réalisé par Nath-Bsrt (ECE 2024)_
 
